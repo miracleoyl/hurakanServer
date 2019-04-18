@@ -102,7 +102,9 @@ module.exports = {
         })
     },
     deleteFile (req, res, next) {
-        File.findOne({id: req.params._id}, (err, file) => {
+        // [Miracle]to query id, construct the ObjectID and not pass it in as a string
+        let tempId = new require('mongodb').ObjectID(req.params.id)
+        File.findOne({_id: tempId}, (err, file) => {
             if (err) {
                 res.status(400).end();
             }
@@ -117,7 +119,6 @@ module.exports = {
                     if (err) {
                         return next(err)
                     }
-                    
                     return res.send([])
                 })
             })
