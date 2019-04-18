@@ -11,7 +11,7 @@ const passport = require('passport')
 // getting the local authentication type
 const LocalStrategy = require('passport-local').Strategy
 
-const publicRoot = '/dist'
+const publicRoot = '/etc/nginx/dist'
 app.use(express.static(publicRoot))
 
 app.use(bodyParser.json())
