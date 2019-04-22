@@ -12,3 +12,16 @@ multer: this is a library which allows us to receive and store files in the back
 To deploy to my server.
 1. copy codes to server, and use forever start index.js to start server
 
+
+
+
+
+
+Fixed defects:
+1.  Delete the wrong file. always removed the firt file instead of the selected one.
+
+Resolution:
+// [Miracle]to query id in mongoDB, construct the ObjectID and not pass it in as a string
+    let tempId = new require('mongodb').ObjectID(req.params.id)
+    File.findOne({_id: tempId}, (err, file) => {
+    ...
