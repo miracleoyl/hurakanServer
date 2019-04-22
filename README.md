@@ -33,4 +33,5 @@ Resolution:
 add client_max_body_size 1000m in nginx.conf
 
 3. download failure
-
+Resolution:
+-Assign write permission to uploads folder...
