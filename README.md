@@ -25,3 +25,12 @@ Resolution:
     let tempId = new require('mongodb').ObjectID(req.params.id)
     File.findOne({_id: tempId}, (err, file) => {
     ...
+
+2.  Upload failure
+Entity too large
+
+Resolution:
+add client_max_body_size 1000m in nginx.conf
+
+3. download failure
+
